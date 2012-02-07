@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Data Structures Plug-in
+Bundle-SymbolicName: net.enilink.commons.ds
+Bundle-Version: 1.0.0
+Export-Package: 
+ net.enilink.commons.ds.graph,
+ net.enilink.commons.ds.misc,
+ net.enilink.commons.ds.trie
+Require-Bundle: net.enilink.commons.iterator;bundle-version="1.0.0"
