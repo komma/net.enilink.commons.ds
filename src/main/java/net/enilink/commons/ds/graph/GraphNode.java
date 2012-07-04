@@ -1,5 +1,6 @@
 package net.enilink.commons.ds.graph;
 
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -62,5 +63,18 @@ class GraphNode<T, E> {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		Iterator<Edge<T, E>> edgeIt = outEdges.iterator();
+		while (edgeIt.hasNext()) {
+			sb.append(edgeIt.next());
+			if (edgeIt.hasNext()) {
+				sb.append(", ");
+			}
+		}
+		return sb.toString();
 	}
 }

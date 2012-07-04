@@ -7,18 +7,17 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * Generic graph implementation
+ * Hashmap based implementation of the {@link IGraph} interface.
  * 
- * @author Ken Wenzel
  */
-public class Graph<N, E> implements IGraph<N, E> {
+public class HashGraph<N, E> implements IGraph<N, E> {
 	protected Map<N, GraphNode<N, E>> nodeMap;
 
-	public Graph() {
+	public HashGraph() {
 		nodeMap = new LinkedHashMap<N, GraphNode<N, E>>();
 	}
 
-	public Graph(IGraph<N, E> original) {
+	public HashGraph(IGraph<N, E> original) {
 		this();
 		for (N node : original.getNodes()) {
 			addNode(node);
@@ -145,5 +144,19 @@ public class Graph<N, E> implements IGraph<N, E> {
 	@Override
 	public boolean containsNode(N node) {
 		return nodeMap.containsKey(node);
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		for (GraphNode<N, E> node : nodeMap.values()) {
+			for (Edge<N, E> edge : node.outEdges) {
+				if (sb.length() > 0) {
+					sb.append("\n");
+				}
+				sb.append(edge);
+			}
+		}
+		return sb.toString();
 	}
 }

@@ -49,7 +49,7 @@ public class WeaklyConnectedComponentsVisitor<T, E> extends UndirectedDfsVisitor
     
     @Override
     protected void startRoot(T node) {
-        newGraph = new Graph<T, E>();
+        newGraph = new HashGraph<T, E>();
         newGraph.addNode(node);
     }
     

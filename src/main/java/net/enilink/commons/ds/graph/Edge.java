@@ -3,26 +3,34 @@ package net.enilink.commons.ds.graph;
 class Edge<N, E> implements IEdge<N, E> {
 	N start, end;
 	E data;
-	
+
 	public Edge(N start, E data, N end) {
 		this.start = start;
 		this.data = data;
 		this.end = end;
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see de.fhg.iwu.traceability.core.graph.IEdge#getStart()
 	 */
 	public N getStart() {
 		return start;
 	}
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see de.fhg.iwu.traceability.core.graph.IEdge#getEnd()
 	 */
 	public N getEnd() {
 		return end;
 	}
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see de.fhg.iwu.traceability.core.graph.IEdge#getData()
 	 */
 	public E getData() {
@@ -64,5 +72,11 @@ class Edge<N, E> implements IEdge<N, E> {
 		} else if (!start.equals(other.start))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return new StringBuilder("(").append(start).append(" -> ").append(end)
+				.append(", ").append(data).append(")").toString();
 	}
 }
